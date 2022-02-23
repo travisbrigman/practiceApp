@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+    <head>
+        <style>
+        .9ColumnGrid {
+          tv-interitem-spacing: 51;
+        }
+        </style>
+    </head>
+    <stackTemplate>
+        <prototypes>
+            <lockup prototype="Comedy" onselect="getDocument('Server/movieDetail.xml', event)">
+                <img binding="@src:{imageURL};" width="250" height="370"/>
+                <title binding="textContent:{title};" />
+            </lockup>
+        </prototypes>
+
+        <banner>
+            <title>iTunes Movies</title>
+        </banner>
+        <collectionList>
+            <header>
+                <title style="text-align:natural">Comedy</title>
+            </header>
+            <shelf>
+                <section binding="items:{movies};" />
+            </shelf>
+        </collectionList>
+    </stackTemplate>
+</document>

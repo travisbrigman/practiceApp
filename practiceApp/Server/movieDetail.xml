@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document>
+  <head>
+    <style>
+    .9ColumnGrid {
+      tv-interitem-spacing: 51;
+    }
+    </style>
+  </head>
+  <productTemplate prototype='detail' theme="dark">
+    <banner>
+      <infoList>
+        <info>
+          <header>
+            <title>genre</title>
+          </header>
+          <text binding="textContent:{genre}"/>
+        </info>
+        <info>
+          <header>
+            <title>director</title>
+          </header>
+          <text binding="textContent:{director}"/>
+        </info>
+        <info>
+          <header>
+            <title>release date</title>
+          </header>
+          <text binding="textContent:{releaseDate}"/>
+        </info>
+      </infoList>
+      <stack>
+        <title binding="textContent:{title};"/>
+        <row>
+            <text binding="textContent:{price}"/>
+        </row>        
+        <description handlesOverflow="true" binding="textContent:{summary}"/>
+        <row>
+          <buttonLockup binding="@src:{trailerURL}" onselect="handleProductEvent(event)">
+            <badge src="resource://button-play" />
+            <fragment binding="textContent:{trailerURL}" />
+            <title>Trailer</title>
+          </buttonLockup>
+        </row>
+      </stack>
+      <heroImg binding="@src:{coverURL}" width="400" height="600" />
+    </banner>
+    <shelf class="9ColumnGrid">
+      <header>
+        <title>More Movies</title>
+      </header>
+      <section binding="items:{movies};">
+        <prototypes>
+          <lockup prototype="Comedy" onselect="getDocument('Server/movieDetail.xml', event)">
+              <img binding="@src:{imageURL};" width="250" height="370"/>
+              <title binding="textContent:{title};" />
+          </lockup>
+      </prototypes>
+        [ALTERNATIVES]
+      </section>
+    </shelf>
+  </productTemplate>
+</document>
